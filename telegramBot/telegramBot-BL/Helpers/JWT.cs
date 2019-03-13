@@ -17,7 +17,7 @@ namespace telegramBot_BL.Helpers
 {
     public static class JWTs
     {
-        static string Create(object payload, string key)
+        public static string Create(object payload, string key)
         {
             var handler = new JwtSecurityTokenHandler();
             
