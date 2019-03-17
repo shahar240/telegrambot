@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using telegramBot_BL.Helpers;
@@ -40,5 +41,14 @@ namespace telegramBot_BL.Managers
         //    req.In
         //    client.Search.SearchRepo();
         //}
+
+        private async Task<HttpResponseMessage> QueryGit(string query)
+        {
+            using (var http = new HttpClient())
+            {
+                var res = await http.PostAsync("https://api.github.com/graphql",new StringContent(query));
+                return res;
+            }
+        }
     }
 }
