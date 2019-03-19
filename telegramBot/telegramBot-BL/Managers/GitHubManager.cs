@@ -31,14 +31,13 @@ namespace telegramBot_BL.Managers
             return await client.Repository.GetAllForUser(userName);
         }
 
-        //public async Task<IReadOnlyList<Repository>> GetRepositoriesByTopics(params string[] topics)
-        //{
-        //    var client = getClient();
-            
-        //    var req = new SearchRepositoriesRequest();
-        //    {InQualifier. }
-        //    req.In
-        //    client.Search.SearchRepo();
-        //}
+        public async Task<string> GetRepositoriesByTopics(params string[] topics)
+        {
+            //TODO bulid class and change return type
+            GithubSearchQueryBuilder qb = new GithubSearchQueryBuilder();
+            foreach (string topic in topics)
+                qb.AddCondition("topic", topic);
+
+        }
     }
 }
