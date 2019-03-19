@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Enums\GithubSearchType.cs" />
     <Compile Include="Enums\GithubPageInfoProperty.cs" />
+    <Compile Include="Helpers\GithubClient.cs" />
     <Compile Include="Helpers\GithubSearchQueryBuilder.cs" />
     <Compile Include="Helpers\JWT.cs" />
     <Compile Include="Managers\GitHubManager.cs" />
