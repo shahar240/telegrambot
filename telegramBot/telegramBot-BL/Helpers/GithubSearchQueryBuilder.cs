@@ -159,7 +159,9 @@ namespace telegramBot_BL.Helpers
             addLimits(queryBuilder);
             //finish search cretirias
             queryBuilder.Append(") {");
+            //add return values
             addReturnValues(queryBuilder);
+            //end query
             queryBuilder.Append("}}");
             return queryBuilder.ToString();
         }
