@@ -7,7 +7,7 @@ using telegramBot_BL.Enums;
 
 namespace telegramBot_BL.Helpers
 {
-    internal class GithubSearchQueryBuilder
+    public class GithubSearchQueryBuilder
     {
         //serch cretirias
         private Dictionary<string, HashSet<string>> _conditions;
@@ -149,9 +149,10 @@ namespace telegramBot_BL.Helpers
             queryBuilder.Append("query{search(");
             //add filters if any was given
             if (_conditions.Count > 0)
+            {
                 addConditions(queryBuilder);
-            else
                 queryBuilder.Append(",");
+            }
             //add type
             queryBuilder.Append(" type:");
             queryBuilder.Append(_type.ToString());
@@ -182,7 +183,9 @@ namespace telegramBot_BL.Helpers
             if(_nodeProperties.Count>0)
             {
                 returnBuilder.Append(",nodes{... on ");
-                returnBuilder.Append(_type.ToString());
+                string type = _type.ToString().ToLower();
+                type =type.First().ToString().ToUpper() + type.Substring(1);
+                returnBuilder.Append(type);
                 returnBuilder.Append(" {");
                 foreach (string prop in _nodeProperties)
                 {
@@ -240,7 +243,7 @@ namespace telegramBot_BL.Helpers
                 string values = String.Join("+", condition.Value);
                 filterBuilder.Append("+");
                 filterBuilder.Append(values);
-                filterBuilder.Append("in:");
+                filterBuilder.Append("+in:");
                 filterBuilder.Append(condition.Key);
             }
             filterBuilder.Remove(0, 1);

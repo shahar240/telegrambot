@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace telegramBot_BL.Enums
 {
-    internal enum GithubPageInfoProperty
+    public enum GithubPageInfoProperty
     {
         startCursor,
         endCursor,

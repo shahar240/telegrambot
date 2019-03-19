@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace telegramBot_BL.Enums
 {
-    internal enum GithubSearchType
+    public enum GithubSearchType
     {
         REPOSITORY,
         User,
