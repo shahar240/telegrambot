@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using telegramBot_BL.Helpers;
 
 namespace telegramBot.Controllers
 {
@@ -22,7 +23,7 @@ namespace telegramBot.Controllers
             if (message.Type == MessageType.Text)
             {
                 // Echo each Message
-                //await Bot.Api.SendTextMessageAsync(message.Chat.Id, message.Text);
+                await TelegramBot.Api.SendTextMessageAsync(message.Chat.Id, message.Text);
             }
             else if (message.Type == MessageType.Photo)
             {

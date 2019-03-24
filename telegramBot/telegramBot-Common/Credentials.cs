@@ -8,7 +8,7 @@ namespace telegramBot_Common
 {
     public class Credentials
     {
-        public string BotToken { get; internal set;}
-        public string GithubAppToken { get; internal set; }
+        public string BotToken { get;  set;}
+        public string GithubAppToken { get;  set; }
     }
 }

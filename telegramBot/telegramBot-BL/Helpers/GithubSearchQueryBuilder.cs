@@ -11,11 +11,13 @@ namespace telegramBot_BL.Helpers
     {
         //serch cretirias
         private Dictionary<string, HashSet<string>> _conditions;
+        private Dictionary<string, string> _propertyFilters;
         private GithubSearchType? _type;
         private int? _first;
         private int? _last;
         private string _before;
         private string _after;
+        private string _sort;
 
         //returned values 
         private bool _codeCount;
@@ -36,6 +38,11 @@ namespace telegramBot_BL.Helpers
 
         }
 
+        /// <summary>
+        /// add condition with multiple posibilities
+        /// </summary>
+        /// <param name="filed"></param>
+        /// <param name="value"></param>
         public void AddCondition(string filed, string value)
         {
             if (!_conditions.ContainsKey(filed))
@@ -51,6 +58,23 @@ namespace telegramBot_BL.Helpers
                 if(_conditions[filed].Count==0)
                     _conditions.Remove(filed);
             }
+        }
+
+        /// <summary>
+        /// add condition with singale posibility
+        /// </summary>
+        public void AddPropertyFillter(string filed, string value)
+        {
+            if (_propertyFilters.ContainsKey(filed))
+                _propertyFilters[filed] = value;
+            else
+                _propertyFilters.Add(filed, value);
+        }
+
+        public void RemovePropertyFillter(string filed)
+        {
+            if (_propertyFilters.ContainsKey(filed))
+                _propertyFilters.Remove(filed);            
         }
 
         public void SetSearchObejctType(GithubSearchType type)
@@ -80,6 +104,11 @@ namespace telegramBot_BL.Helpers
         public void SetAfter(string after)
         {
             _after = after;
+        }
+
+        public void SetSortCretiria(string sort)
+        {
+            _sort = sort;
         }
 
         public void setReturnCodeCount(bool codeCount)
@@ -245,6 +274,12 @@ namespace telegramBot_BL.Helpers
                 filterBuilder.Append(values);
                 filterBuilder.Append("+in:");
                 filterBuilder.Append(condition.Key);
+            }
+            if(_sort!=null)
+            {
+                filterBuilder.Append(" sort:");
+                filterBuilder.Append(_sort);
+
             }
             filterBuilder.Remove(0, 1);
             queryBuilder.Append(filterBuilder.ToString());

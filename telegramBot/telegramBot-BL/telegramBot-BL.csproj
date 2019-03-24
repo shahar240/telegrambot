@@ -72,6 +72,7 @@
     <Compile Include="Helpers\GithubClient.cs" />
     <Compile Include="Helpers\GithubSearchQueryBuilder.cs" />
     <Compile Include="Helpers\JWT.cs" />
+    <Compile Include="Helpers\TelegramBot.cs" />
     <Compile Include="Managers\GitHubManager.cs" />
     <Compile Include="Managers\TelegramManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

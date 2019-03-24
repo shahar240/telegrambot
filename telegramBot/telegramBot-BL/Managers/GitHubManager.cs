@@ -37,6 +37,15 @@ namespace telegramBot_BL.Managers
             GithubSearchQueryBuilder qb = new GithubSearchQueryBuilder();
             foreach (string topic in topics)
                 qb.AddCondition("topic", topic);
+            qb.AddPropertyFillter("viewerHasStarred", "false");
+            qb.AddPropertyFillter("viewerPermission", "READ");
+            qb.SetSortCretiria("stars");
+            qb.AddReturnNodeProperty("name");
+            qb.AddReturnNodeProperty("description");
+            qb.AddReturnNodeProperty("url");
+            qb.AddReturnNodeProperty("stargazers{totalCount}");
+            string query = qb.build();
+            return "";
 
         }
     }
