@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telegramBot-Common", "teleg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telegramBot-BL-Test", "telegramBot-BL-Test\telegramBot-BL-Test.csproj", "{BB18FC90-CD5E-4203-A685-43DED08025C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterBotWebhook", "RegisterBotWebhook\RegisterBotWebhook.csproj", "{B1295CA9-BCA6-487F-9508-55B5D6E0E7E4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{BB18FC90-CD5E-4203-A685-43DED08025C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB18FC90-CD5E-4203-A685-43DED08025C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB18FC90-CD5E-4203-A685-43DED08025C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1295CA9-BCA6-487F-9508-55B5D6E0E7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1295CA9-BCA6-487F-9508-55B5D6E0E7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1295CA9-BCA6-487F-9508-55B5D6E0E7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1295CA9-BCA6-487F-9508-55B5D6E0E7E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,2 @@
+curl -F "url=https://ec2-18-194-39-33.eu-central-1.compute.amazonaws.com/WebHook" -F "certificate=@C:\Users\Administrator\Documents\TeleBotCert3.pem" https://api.telegram.org/bot527356721:AAHzNY8lbPRtHbnsQhABFn5n9uVrUcxLVA0/setWebhook
+rem C:\Telebot\registerwebhook\RegisterBotWebhook.exe -register
