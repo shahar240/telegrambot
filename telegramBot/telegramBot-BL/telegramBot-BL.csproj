@@ -75,6 +75,7 @@
     <Compile Include="Helpers\TelegramBot.cs" />
     <Compile Include="Managers\GitHubManager.cs" />
     <Compile Include="Managers\TelegramManager.cs" />
+    <Compile Include="Managers\UsersManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +86,10 @@
     <ProjectReference Include="..\telegramBot-Common\telegramBot-Common.csproj">
       <Project>{2E054904-3E68-4BDC-ABDB-43C7A316E974}</Project>
       <Name>telegramBot-Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\telegramBot-DAL\telegramBot-DAL.csproj">
+      <Project>{2FB4433E-8EED-4970-90E4-0957151BE1DC}</Project>
+      <Name>telegramBot-DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
