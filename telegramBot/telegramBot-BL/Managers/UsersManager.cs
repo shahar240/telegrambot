@@ -46,5 +46,38 @@ namespace telegramBot_BL.Managers
             };
             return await _usersRepo.UpdateOrCreate(user);
         }
+
+        public async Task<string> GetUserSettingsString(int telegramId)
+        {
+            User user = await _usersRepo.FindUser(telegramId);
+            if (user == null)
+                return "user has not registered to any service or set update frequency";
+            StringBuilder settings = new StringBuilder();
+            settings.Append("update frequncy: ");
+            settings.AppendLine(user.updateFrequency.ToString());
+            settings.AppendLine("resitered services:");
+
+            var props = user.GetType().GetProperties();
+            foreach (var prop in props)
+            {
+                if (prop.Name != nameof(user.Id) && prop.Name!= nameof(user.updateFrequency) &&
+                    prop.Name != nameof(user.lastUpdate)&& prop.PropertyType.IsValueType &&
+                    prop.CanWrite && prop.CanRead)
+                {
+                    object value = prop.GetValue(user);
+                    if (value != null)
+                    {
+                        object obj = Activator.CreateInstance(prop.PropertyType);
+                        if (!obj.Equals(value))
+                        {
+                            settings.Append("-");
+                            settings.AppendLine(value.ToString());
+                        }
+                    }
+                }
+            }
+            return settings.ToString();
+
+        }
     }
 }

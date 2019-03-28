@@ -23,7 +23,7 @@ namespace telegramBot_DAL.Repositories.MsSql
                         break;
                     case EntityState.Modified:
                         update(user, ctx);
-                        break;                
+                        break;
                     case EntityState.Unchanged:
                         //item already in db no need to do anything  
                         break;
@@ -40,9 +40,9 @@ namespace telegramBot_DAL.Repositories.MsSql
         {
             User user = ctx.Users.Find(update.Id);
             var props = update.GetType().GetProperties();
-            foreach(var prop in props)
+            foreach (var prop in props)
             {
-                if(prop.Name!="Id" &&prop.CanWrite && prop.CanRead)
+                if (prop.Name != "Id" && prop.CanWrite && prop.CanRead)
                 {
                     object value = prop.GetValue(update);
                     if (value != null)
@@ -53,7 +53,15 @@ namespace telegramBot_DAL.Repositories.MsSql
                     }
                 }
             }
-            
+
+        }
+
+        public async Task<User> FindUser(int id)
+        {
+            using (var ctx = new TeleBotDataContainer())
+            {
+                return await ctx.Users.FindAsync(id);
+            }
         }
     }
 }
