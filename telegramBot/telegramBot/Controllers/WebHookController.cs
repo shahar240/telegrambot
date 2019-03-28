@@ -32,13 +32,13 @@ namespace telegramBot.Controllers
                     string[] cmd = message.Text.Split(' ');
                     switch (cmd[0].ToLower())
                     {
-                        case "/enablegithub":
+                        case "/enable_github":
                             await EnableGithub(message, cmd);
                             break;
-                        case "/disablegithub":
+                        case "/disable_github":
                             await DisableGithub(message, cmd);
                             break;
-                        case "/setfrequency":
+                        case "/set_frequency":
                             await SetFrequency(message, cmd);
                             break;
                         case "/help":
